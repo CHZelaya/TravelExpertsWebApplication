@@ -2,7 +2,52 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="hero text-center">
+    <img src="~/images/mainhero.jpg" alt="Hero Image" class="img-fluid">
+    <div class="container">
+        <h1 class="mt-4">Travel Experts!</h1>
+        <p>
+            Travel Experts offers unforgettable travel packages tailored to your adventure style. <br> From stunning
+            landscapes to vibrant cultures, our curated itineraries feature hidden gems and local experiences.
+            Whether you seek relaxation, adventure, or cultural immersion, we’re here to turn your travel dreams
+            into reality. Explore the world with us!
+        </p>
+        <a href="/vacation" class="btn btn-light btn-lg">Explore Packages</a>
+    </div>
 </div>
+
+<h4 class="text-center mb-4">Frequently Visited Destinations:</h4>
+
+
+<!-- 4 country pictures with hover style effects and links to countdown.html that directs to url -->
+<div class="image-row">
+    <div class="country">
+        <img src="/images/image1.jpg" alt="Canada">
+        <div class="caption">Canada is known for its natural beauty.</div>
+    </div>
+    <div class="country">
+        <img src="/images/image2.jpg" alt="Peru">
+        <div class="caption">Peru has diverse habitats and rich culture.</div>
+    </div>
+    <div class="country">
+        <img src="/images/image3.jpg" alt="Iceland">
+        <div class="caption">Iceland is famous for its dramatic landscapes. </div>
+    </div>
+    <div class="country">
+        <img src="/images/image4.jpg" alt="Malaysia">
+        <div class="caption">Malaysia is rich in multicultural diversity.</div>
+    </div>
+</div>
+    </div>
+
+<div class="p-5 rounded shadow-lg text-center" style="background-color: #e0f7fa;">
+    <h1 class="mb-4 text-dark">Share Your Experience</h1>
+    <p class="lead mb-4 text-dark">We value your feedback! Tell us about your experience with our services and help others make informed decisions. Click the button below to submit your review and let your voice be heard!</p>
+    <a class="btn btn-lg px-4 py-2 btn-custom" href="/reviewform" role="button">Submit Your Review</a>
+</div>
+
+@* <footer class="footer mt-auto py-3 bg-body-tertiary"> *@
+@*     <div class="container"> *@
+@*         <img src="/images/logo.png" alt="Logo" class="logo"> *@
+@*         <span class="text-body-secondary">Travel Experts Copyright</span> *@
+@*     </div> *@
