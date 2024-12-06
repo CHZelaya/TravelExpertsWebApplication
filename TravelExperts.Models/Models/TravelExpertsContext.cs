@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace TravelExperts.Models.Models;
 
-public partial class TravelExpertsContext : DbContext
+public partial class TravelExpertsContext : IdentityDbContext<User>//changing dbContext to IdentityDbContext
 {
     public TravelExpertsContext()
     {
@@ -55,14 +56,36 @@ public partial class TravelExpertsContext : DbContext
 
     public virtual DbSet<TripType> TripTypes { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
+        => optionsBuilder
+        .UseSqlServer("Data Source=localhost\\sqlexpress;Initial " +
+            "Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+        ////new builder for User
+        //modelBuilder.Entity<User>(entity =>
+        //{
+        //    entity.Property(u => u.VirtualWallet)
+        //          .HasDefaultValue(0.0);
+
+        //    entity.Property(u => u.TravelPreference)
+        //          .HasMaxLength(250)
+        //          .IsRequired(false);
+
+        //    entity.Property(u => u.ProfilePicture)
+        //          .HasColumnType("varbinary(max)");
+
+            
+        //    entity.HasOne(u => u.Customer)
+        //          .WithOne() // One-to-One
+        //          .HasForeignKey<User>(u => u.CustomerId) // Foreign Key in User table
+        //          .HasConstraintName("FK_User_Customer");
+                 
+        //});
+
+
         modelBuilder.Entity<Affiliation>(entity =>
         {
             entity.HasKey(e => e.AffilitationId)
@@ -170,7 +193,7 @@ public partial class TravelExpertsContext : DbContext
 
         modelBuilder.Entity<PackagesProductsSupplier>(entity =>
         {
-            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED994054EA7D");
+            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED99B6BE57CE");
 
             entity.HasOne(d => d.Package).WithMany(p => p.PackagesProductsSuppliers)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -241,11 +264,6 @@ public partial class TravelExpertsContext : DbContext
             entity.HasKey(e => e.TripTypeId)
                 .HasName("aaaaaTripTypes_PK")
                 .IsClustered(false);
-        });
-
-        modelBuilder.Entity<User>(entity =>
-        {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__B9BE370F21345426");
         });
 
         OnModelCreatingPartial(modelBuilder);

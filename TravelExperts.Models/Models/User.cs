@@ -1,28 +1,18 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace TravelExperts.Models.Models;
-
-[Index("Username", Name = "UQ__Users__F3DBC572DEFFFC32", IsUnique = true)]
-public partial class User
+namespace TravelExperts.Models.Models
 {
-    [Key]
-    [Column("user_id")]
-    public int UserId { get; set; }
-
-    [Column("username")]
-    [StringLength(25)]
-    [Unicode(false)]
-    public string Username { get; set; } = null!;
-
-    [Column("password")]
-    [StringLength(30)]
-    [Unicode(false)]
-    public string Password { get; set; } = null!;
-
-    [Column("admin")]
-    public bool Admin { get; set; }
+    public class User : IdentityUser
+    {
+        public double VirtualWallet { get; set; }
+        public string TravelPreference { get; set; }
+        public byte[] ProfilePicture { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+    }
 }

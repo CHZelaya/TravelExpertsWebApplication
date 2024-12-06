@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using TravelExperts.Models.Models;
+
 namespace TravelExpertsMVC
 {
     public class Program
@@ -8,6 +12,19 @@ namespace TravelExpertsMVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //add service for creation of context object
+            builder.Services.AddDbContext<TravelExpertsContext>(options =>
+                        options.UseSqlServer(
+                            builder.Configuration.GetConnectionString("TravelExpertsContext")));
+
+            //add identity service
+            builder.Services.AddIdentity<User, IdentityRole>(options => {
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+            })
+                .AddEntityFrameworkStores<TravelExpertsContext>().AddDefaultTokenProviders();
 
             var app = builder.Build();
 
@@ -24,6 +41,8 @@ namespace TravelExpertsMVC
 
             app.UseRouting();
 
+            //authentication before authorization
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
