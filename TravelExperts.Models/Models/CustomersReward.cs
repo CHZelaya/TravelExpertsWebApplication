@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace TravelExperts.Models.Models;
+namespace TravelExpertsData.Models;
 
 [PrimaryKey("CustomerId", "RewardId")]
 [Table("Customers_Rewards")]

@@ -1,0 +1,81 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model TravelExpertsData.ViewModel.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Register</h2>
+    <form asp-action="Register" method="post" asp-route-returnUrl="@ViewData["ReturnUrl"]">
+        <!-- Conditional Validation Summary -->
+        @if (ViewData.ModelState?.Any(m => m.Value.Errors.Count > 0) == true)
+        {
+            <div asp-validation-summary="All" class="alert alert-danger" role="alert"></div>
+        }
+
+        <!-- User Details Section -->
+        <fieldset class="border p-3 mb-4">
+            <legend class="w-auto">User Details</legend>
+
+            <div class="mb-3">
+                <label asp-for="UserName" class="form-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+        </fieldset>
+
+        <!-- Customer Details Section -->
+        <fieldset class="border p-3 mb-4">
+            <legend class="w-auto">Customer Details</legend>
+
+            <div class="mb-3">
+                <label asp-for="Customer.FirstName" class="form-label">First Name</label>
+                <input asp-for="Customer.FirstName" class="form-control" />
+                <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Customer.LastName" class="form-label">Last Name</label>
+                <input asp-for="Customer.LastName" class="form-control" />
+                <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Customer.Phone" class="form-label">Phone</label>
+                <input asp-for="Customer.Phone" class="form-control" />
+                <span asp-validation-for="Customer.Phone" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Customer.City" class="form-label">City</label>
+                <input asp-for="Customer.City" class="form-control" />
+                <span asp-validation-for="Customer.City" class="text-danger"></span>
+            </div>
+        </fieldset>
+
+        <!-- Submit Button Section -->
+        <div class="d-flex justify-content-between align-items-center">
+            <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">Already have an account?</a>
+            <input type="submit" value="Register" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

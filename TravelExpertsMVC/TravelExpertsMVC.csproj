@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TravelExperts.Models\TravelExperts.Models.csproj" />
+    <ProjectReference Include="..\TravelExperts.Models\TravelExpertsData.csproj" />
   </ItemGroup>
 
 </Project>
