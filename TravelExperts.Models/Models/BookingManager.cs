@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelExperts.Models.Models
+namespace TravelExpertsData.Models
 {
     public class BookingManager
     {
@@ -79,7 +79,7 @@ namespace TravelExperts.Models.Models
                 bookingId = booking.BookingId;
             }
             catch (Exception ex) {
-                throw ex;
+                throw;
             }
             return bookingId;
         }
@@ -95,7 +95,7 @@ namespace TravelExperts.Models.Models
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw;
             }
             return result;
         }

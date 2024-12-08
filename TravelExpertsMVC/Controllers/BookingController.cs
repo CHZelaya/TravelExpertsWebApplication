@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TravelExperts.Models.Models;
+using TravelExpertsData.Models;
 
 namespace TravelExpertsMVC.Controllers
 {

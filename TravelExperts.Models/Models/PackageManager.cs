@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelExperts.Models.Models
+namespace TravelExpertsData.Models
 {
     public class PackageManager
     {
