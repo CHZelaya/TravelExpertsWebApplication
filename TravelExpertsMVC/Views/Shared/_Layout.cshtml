@@ -27,6 +27,7 @@
                         <li class="nav-item"><a class="nav-link @(ViewData["Page"]?.ToString() == "Booking" ? "active" : "")" aria-current="page" asp-controller="Booking" asp-action="Index">MyBookings</a></li>
                         <li class="nav-item"><a class="nav-link @(ViewData["Page"]?.ToString() == "Register" ? "active" : "")" asp-controller="Register" asp-action="Index">Register Now</a></li>
                     </ul>
+                        <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>

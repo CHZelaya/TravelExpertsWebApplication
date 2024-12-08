@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Collections.Generic;
-using TravelExperts.Models.Models;
+using TravelExperts.Models;
 
 namespace TravelExpertsMVC.Controllers
 {

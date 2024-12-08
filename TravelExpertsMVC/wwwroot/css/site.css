@@ -97,3 +97,8 @@ body {
 .list-group-item {
     font-size: small;
 }
+
+/*//fix footer absolute error*/
+footer {
+    position: relative!important;
+}
