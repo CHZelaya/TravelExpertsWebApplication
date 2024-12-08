@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TravelExperts.Models.Models;
+using TravelExpertsData.Models;
 
 namespace TravelExpertsMVC
 {

@@ -12,8 +12,8 @@ using TravelExpertsData.Models;
 namespace TravelExperts.Models.Migrations
 {
     [DbContext(typeof(TravelExpertsContext))]
-    [Migration("20241206174624_IdentityUser")]
-    partial class IdentityUser
+    [Migration("20241207225925_defaultWalletAmount")]
+    partial class defaultWalletAmount
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,7 +158,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Affiliation", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Affiliation", b =>
                 {
                     b.Property<string>("AffilitationId")
                         .HasMaxLength(10)
@@ -180,7 +180,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Affiliations");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Agency", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Agency", b =>
                 {
                     b.Property<int>("AgencyId")
                         .ValueGeneratedOnAdd()
@@ -221,7 +221,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Agencies");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Agent", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Agent", b =>
                 {
                     b.Property<int>("AgentId")
                         .ValueGeneratedOnAdd()
@@ -263,7 +263,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Agents");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Booking", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Booking", b =>
                 {
                     b.Property<int>("BookingId")
                         .ValueGeneratedOnAdd()
@@ -311,7 +311,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Bookings");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.BookingDetail", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.BookingDetail", b =>
                 {
                     b.Property<int>("BookingDetailId")
                         .ValueGeneratedOnAdd()
@@ -390,7 +390,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("BookingDetails");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Class", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Class", b =>
                 {
                     b.Property<string>("ClassId")
                         .HasMaxLength(5)
@@ -413,7 +413,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Classes");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.CreditCard", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.CreditCard", b =>
                 {
                     b.Property<int>("CreditCardId")
                         .ValueGeneratedOnAdd()
@@ -450,7 +450,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("CreditCards");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Customer", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Customer", b =>
                 {
                     b.Property<int>("CustomerId")
                         .ValueGeneratedOnAdd()
@@ -519,7 +519,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.CustomersReward", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.CustomersReward", b =>
                 {
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -544,7 +544,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Customers_Rewards");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Employee", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Employee", b =>
                 {
                     b.Property<string>("EmpBusPhone")
                         .IsRequired()
@@ -578,7 +578,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Fee", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Fee", b =>
                 {
                     b.Property<string>("FeeId")
                         .HasMaxLength(10)
@@ -604,7 +604,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Fees");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Package", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Package", b =>
                 {
                     b.Property<int>("PackageId")
                         .ValueGeneratedOnAdd()
@@ -643,7 +643,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Packages");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.PackagesProductsSupplier", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.PackagesProductsSupplier", b =>
                 {
                     b.Property<int>("PackageProductSupplierId")
                         .ValueGeneratedOnAdd()
@@ -672,7 +672,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Packages_Products_Suppliers");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Product", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Product", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -695,7 +695,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.ProductsSupplier", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.ProductsSupplier", b =>
                 {
                     b.Property<int>("ProductSupplierId")
                         .ValueGeneratedOnAdd()
@@ -729,7 +729,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Products_Suppliers");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Region", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Region", b =>
                 {
                     b.Property<string>("RegionId")
                         .HasMaxLength(5)
@@ -747,7 +747,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Regions");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Reward", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Reward", b =>
                 {
                     b.Property<int>("RewardId")
                         .ValueGeneratedOnAdd()
@@ -771,7 +771,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Rewards");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Supplier", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Supplier", b =>
                 {
                     b.Property<int>("SupplierId")
                         .ValueGeneratedOnAdd()
@@ -793,7 +793,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.SupplierContact", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.SupplierContact", b =>
                 {
                     b.Property<int>("SupplierContactId")
                         .HasColumnType("int");
@@ -868,7 +868,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("SupplierContacts");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.TripType", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.TripType", b =>
                 {
                     b.Property<string>("TripTypeId")
                         .HasMaxLength(1)
@@ -887,7 +887,7 @@ namespace TravelExperts.Models.Migrations
                     b.ToTable("TripTypes");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.User", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -979,7 +979,7 @@ namespace TravelExperts.Models.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.User", null)
+                    b.HasOne("TravelExpertsData.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -988,7 +988,7 @@ namespace TravelExperts.Models.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.User", null)
+                    b.HasOne("TravelExpertsData.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1003,7 +1003,7 @@ namespace TravelExperts.Models.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TravelExperts.Models.Models.User", null)
+                    b.HasOne("TravelExpertsData.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1012,16 +1012,16 @@ namespace TravelExperts.Models.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.User", null)
+                    b.HasOne("TravelExpertsData.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Agent", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Agent", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Agency", "Agency")
+                    b.HasOne("TravelExpertsData.Models.Agency", "Agency")
                         .WithMany("Agents")
                         .HasForeignKey("AgencyId")
                         .HasConstraintName("FK_Agents_Agencies");
@@ -1029,19 +1029,19 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("Agency");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Booking", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Booking", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Customer", "Customer")
+                    b.HasOne("TravelExpertsData.Models.Customer", "Customer")
                         .WithMany("Bookings")
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("Bookings_FK00");
 
-                    b.HasOne("TravelExperts.Models.Models.Package", "Package")
+                    b.HasOne("TravelExpertsData.Models.Package", "Package")
                         .WithMany("Bookings")
                         .HasForeignKey("PackageId")
                         .HasConstraintName("Bookings_FK01");
 
-                    b.HasOne("TravelExperts.Models.Models.TripType", "TripType")
+                    b.HasOne("TravelExpertsData.Models.TripType", "TripType")
                         .WithMany("Bookings")
                         .HasForeignKey("TripTypeId")
                         .HasConstraintName("Bookings_FK02");
@@ -1053,29 +1053,29 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("TripType");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.BookingDetail", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.BookingDetail", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Booking", "Booking")
+                    b.HasOne("TravelExpertsData.Models.Booking", "Booking")
                         .WithMany("BookingDetails")
                         .HasForeignKey("BookingId")
                         .HasConstraintName("FK_BookingDetails_Bookings");
 
-                    b.HasOne("TravelExperts.Models.Models.Class", "Class")
+                    b.HasOne("TravelExpertsData.Models.Class", "Class")
                         .WithMany("BookingDetails")
                         .HasForeignKey("ClassId")
                         .HasConstraintName("FK_BookingDetails_Classes");
 
-                    b.HasOne("TravelExperts.Models.Models.Fee", "Fee")
+                    b.HasOne("TravelExpertsData.Models.Fee", "Fee")
                         .WithMany("BookingDetails")
                         .HasForeignKey("FeeId")
                         .HasConstraintName("FK_BookingDetails_Fees");
 
-                    b.HasOne("TravelExperts.Models.Models.ProductsSupplier", "ProductSupplier")
+                    b.HasOne("TravelExpertsData.Models.ProductsSupplier", "ProductSupplier")
                         .WithMany("BookingDetails")
                         .HasForeignKey("ProductSupplierId")
                         .HasConstraintName("FK_BookingDetails_Products_Suppliers");
 
-                    b.HasOne("TravelExperts.Models.Models.Region", "Region")
+                    b.HasOne("TravelExpertsData.Models.Region", "Region")
                         .WithMany("BookingDetails")
                         .HasForeignKey("RegionId")
                         .HasConstraintName("FK_BookingDetails_Regions");
@@ -1091,9 +1091,9 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("Region");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.CreditCard", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.CreditCard", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Customer", "Customer")
+                    b.HasOne("TravelExpertsData.Models.Customer", "Customer")
                         .WithMany("CreditCards")
                         .HasForeignKey("CustomerId")
                         .IsRequired()
@@ -1102,9 +1102,9 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Customer", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Customer", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Agent", "Agent")
+                    b.HasOne("TravelExpertsData.Models.Agent", "Agent")
                         .WithMany("Customers")
                         .HasForeignKey("AgentId")
                         .HasConstraintName("FK_Customers_Agents");
@@ -1112,15 +1112,15 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("Agent");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.CustomersReward", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.CustomersReward", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Customer", "Customer")
+                    b.HasOne("TravelExpertsData.Models.Customer", "Customer")
                         .WithMany("CustomersRewards")
                         .HasForeignKey("CustomerId")
                         .IsRequired()
                         .HasConstraintName("Customers_Rewards_FK00");
 
-                    b.HasOne("TravelExperts.Models.Models.Reward", "Reward")
+                    b.HasOne("TravelExpertsData.Models.Reward", "Reward")
                         .WithMany("CustomersRewards")
                         .HasForeignKey("RewardId")
                         .IsRequired()
@@ -1131,15 +1131,15 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("Reward");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.PackagesProductsSupplier", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.PackagesProductsSupplier", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Package", "Package")
+                    b.HasOne("TravelExpertsData.Models.Package", "Package")
                         .WithMany("PackagesProductsSuppliers")
                         .HasForeignKey("PackageId")
                         .IsRequired()
                         .HasConstraintName("Packages_Products_Supplie_FK00");
 
-                    b.HasOne("TravelExperts.Models.Models.ProductsSupplier", "ProductSupplier")
+                    b.HasOne("TravelExpertsData.Models.ProductsSupplier", "ProductSupplier")
                         .WithMany("PackagesProductsSuppliers")
                         .HasForeignKey("ProductSupplierId")
                         .IsRequired()
@@ -1150,14 +1150,14 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("ProductSupplier");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.ProductsSupplier", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.ProductsSupplier", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Product", "Product")
+                    b.HasOne("TravelExpertsData.Models.Product", "Product")
                         .WithMany("ProductsSuppliers")
                         .HasForeignKey("ProductId")
                         .HasConstraintName("Products_Suppliers_FK00");
 
-                    b.HasOne("TravelExperts.Models.Models.Supplier", "Supplier")
+                    b.HasOne("TravelExpertsData.Models.Supplier", "Supplier")
                         .WithMany("ProductsSuppliers")
                         .HasForeignKey("SupplierId")
                         .HasConstraintName("Products_Suppliers_FK01");
@@ -1167,14 +1167,14 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.SupplierContact", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.SupplierContact", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Affiliation", "Affiliation")
+                    b.HasOne("TravelExpertsData.Models.Affiliation", "Affiliation")
                         .WithMany("SupplierContacts")
                         .HasForeignKey("AffiliationId")
                         .HasConstraintName("SupplierContacts_FK00");
 
-                    b.HasOne("TravelExperts.Models.Models.Supplier", "Supplier")
+                    b.HasOne("TravelExpertsData.Models.Supplier", "Supplier")
                         .WithMany("SupplierContacts")
                         .HasForeignKey("SupplierId")
                         .HasConstraintName("SupplierContacts_FK01");
@@ -1184,9 +1184,9 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.User", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.User", b =>
                 {
-                    b.HasOne("TravelExperts.Models.Models.Customer", "Customer")
+                    b.HasOne("TravelExpertsData.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1195,32 +1195,32 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Affiliation", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Affiliation", b =>
                 {
                     b.Navigation("SupplierContacts");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Agency", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Agency", b =>
                 {
                     b.Navigation("Agents");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Agent", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Agent", b =>
                 {
                     b.Navigation("Customers");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Booking", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Booking", b =>
                 {
                     b.Navigation("BookingDetails");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Class", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Class", b =>
                 {
                     b.Navigation("BookingDetails");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Customer", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Customer", b =>
                 {
                     b.Navigation("Bookings");
 
@@ -1229,48 +1229,48 @@ namespace TravelExperts.Models.Migrations
                     b.Navigation("CustomersRewards");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Fee", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Fee", b =>
                 {
                     b.Navigation("BookingDetails");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Package", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Package", b =>
                 {
                     b.Navigation("Bookings");
 
                     b.Navigation("PackagesProductsSuppliers");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Product", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Product", b =>
                 {
                     b.Navigation("ProductsSuppliers");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.ProductsSupplier", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.ProductsSupplier", b =>
                 {
                     b.Navigation("BookingDetails");
 
                     b.Navigation("PackagesProductsSuppliers");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Region", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Region", b =>
                 {
                     b.Navigation("BookingDetails");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Reward", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Reward", b =>
                 {
                     b.Navigation("CustomersRewards");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.Supplier", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.Supplier", b =>
                 {
                     b.Navigation("ProductsSuppliers");
 
                     b.Navigation("SupplierContacts");
                 });
 
-            modelBuilder.Entity("TravelExperts.Models.Models.TripType", b =>
+            modelBuilder.Entity("TravelExpertsData.Models.TripType", b =>
                 {
                     b.Navigation("Bookings");
                 });
