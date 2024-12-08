@@ -1,0 +1,78 @@
+﻿@model TravelExpertsData.Models.BookingOrderModel
+@{
+    ViewData["Page"] = "Package";
+}
+
+<h1>Place Order</h1>
+<div class="row">
+    <form method="post" asp-action="Order">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input asp-for="PackageId" hidden value="@ViewBag.Package.PackageId" />
+        <input asp-for="BasePrice" hidden value="@ViewBag.Package.PkgBasePrice" />
+        <input asp-for="AgencyCommission" hidden value="@ViewBag.Package.PkgAgencyCommission" />
+        <input type="datetime" hidden asp-for="TripStart" value="@ViewBag.Package.PkgStartDate" />
+        <input type="datetime" hidden asp-for="TripEnd" value="@ViewBag.Package.PkgEndDate" />
+        <div class="form-control-lg">
+            <label asp-for="TravelerCount" class="control-label"></label>
+            <input asp-for="TravelerCount" class="form-control" type="number" />
+            <span asp-validation-for="TravelerCount" class="text-danger"></span>
+        </div>
+        <div class="form-control-lg">
+            <label asp-for="TripTypeId" class="control-label"></label>
+            @if (ViewBag.TripTypeList != null) {
+                <select class="form-select" asp-for="TripTypeId" asp-items="@ViewBag.TripTypeList"></select>
+            }
+            <span asp-validation-for="TripTypeId" class="text-danger"></span>
+        </div> 
+        <div class="form-control-lg">
+            <label asp-for="ItineraryNo" class="control-label"></label>
+            <input asp-for="ItineraryNo" class="form-control" type="number" />
+            <span asp-validation-for="ItineraryNo" class="text-danger"></span>
+        </div>
+        <div class="form-control-lg">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-control-lg">
+            <label asp-for="Destination" class="control-label"></label>
+            <input asp-for="Destination" class="form-control" />
+            <span asp-validation-for="Destination" class="text-danger"></span>
+        </div>
+        <div class="form-control-lg">
+            <label asp-for="RegionId" class="control-label"></label>
+            @if (ViewBag.RegionList != null)
+            {
+                <select class="form-select" asp-for="RegionId" asp-items="@ViewBag.RegionList"></select>
+            }
+            <span asp-validation-for="RegionId" class="text-danger"></span>
+        </div>
+        <div class="form-control-lg">
+            <label asp-for="ClassId" class="control-label"></label>
+            @if (ViewBag.ClassList != null)
+            {
+                <select class="form-select" asp-for="ClassId" asp-items="@ViewBag.ClassList"></select>
+            }
+            <span asp-validation-for="ClassId" class="text-danger"></span>
+        </div>
+        <div class="form-control-lg">
+            <label asp-for="FeeId" class="control-label"></label>
+            @if (ViewBag.FeeList != null)
+            {
+                <select class="form-select" asp-for="FeeId" asp-items="@ViewBag.FeeList"></select>
+            }
+            <span asp-validation-for="FeeId" class="text-danger"></span>
+        </div>
+        <div class="form-control-lg">
+            <label asp-for="ProductSupplierId" class="control-label"></label>
+            @if (ViewBag.ProductSupplierList != null)
+            {
+                <select class="form-select" asp-for="ProductSupplierId" asp-items="@ViewBag.ProductSupplierList"></select>
+            }
+            <span asp-validation-for="ProductSupplierId" class="text-danger"></span>
+        </div>
+        <div class="form-control-lg">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

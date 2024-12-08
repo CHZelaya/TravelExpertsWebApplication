@@ -6,6 +6,7 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/daryl.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TravelExpertsMVC.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -20,16 +21,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <img src="/images/logo.png" alt="Logo" class="logo">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a  class="nav-link active" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item"><a  class="nav-link" asp-controller="Vacation" asp-action="Index">Vacation Packages</a></li>
-                        <li class="nav-item"><a  class="nav-link" aria-current="page" asp-controller="Team" asp-action="Index">Meet the Team</a></li>
-                        
+                        <li class="nav-item"><a class="nav-link @(ViewData["Page"]?.ToString() == "Home" ? "active" : "")" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link @(ViewData["Page"]?.ToString() == "Package" ? "active" : "")" asp-controller="Vacation" asp-action="Index">Vacation Packages</a></li>
+                        <li class="nav-item"><a class="nav-link @(ViewData["Page"]?.ToString() == "Team" ? "active" : "")" aria-current="page" asp-controller="Team" asp-action="Index">Meet the Team</a></li>
+                        <li class="nav-item"><a class="nav-link @(ViewData["Page"]?.ToString() == "Booking" ? "active" : "")" aria-current="page" asp-controller="Booking" asp-action="Index">MyBookings</a></li>
                     </ul>
-                        <partial name="_LoginPartial" />
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
+
+    @if (TempData["errorMessage"] != null)
+    {
+        <div id="errorBox" class="errorMessage">
+            @TempData["errorMessage"]!.ToString()
+        </div>
+    }
 
     <div class="container">
         <main role="main" class="pb-3">
@@ -37,19 +45,19 @@
         </main>
     </div>
 
-    @* <footer class="border-top footer text-muted"> *@
-    @*     <div class="container"> *@
-    @*         &copy; 2024 - TravelExpertsMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
-    @*     </div> *@
-    @* </footer> *@
-
-    <footer class="footer mt-auto py-3 bg-body-tertiary">
-        <div class="container">
-            <img src="/images/logo.png" alt="Logo" class="logo">
-            <span class="text-body-secondary">Travel Experts Copyright</span>
-        </div>
-    </footer>
+    <div class="modal-footer">
+        <img src="/images/logo.png" alt="Logo" class="logo">
+        <span class="text-body-secondary">Travel Experts Copyright</span>
+     </div>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            setTimeout(function(){
+                $("#errorBox").fadeOut("slow");
+            },3000);
+        });
+    </script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
