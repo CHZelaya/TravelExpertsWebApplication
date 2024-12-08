@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using TravelExpertsData.Manager;
 using TravelExpertsData.Models;
 using TravelExpertsData.ViewModel;
@@ -66,6 +67,48 @@ namespace TravelExpertsMVC.Controllers
             }
             foreach (var item in result.Errors)
                 ModelState.AddModelError("", item.Description);
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProfileImage()
+        {
+            var user = await userManager.GetUserAsync(User);//gets the signed in user details
+            if (user?.ProfilePicture != null && user.ProfilePicture.Length > 0)
+            {
+                return File(user.ProfilePicture, "image/jpeg");
+            }
+
+            // Return default profile picture if none exists
+            var defaultImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "default-profile.jpg");
+            var defaultImage = System.IO.File.ReadAllBytes(defaultImagePath);
+            return File(defaultImage, "image/jpeg");
+        }
+
+        [AllowAnonymous]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> LoginAsync(LoginViewModel lvm)
+        {
+            if (ModelState.IsValid)
+            {
+                //authenticate
+                var result = await signInManager.PasswordSignInAsync(lvm.Username, lvm.Password, lvm.RememberMe, false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid Login");
+                    return View();
+                }
+            }
             return View();
         }
 
