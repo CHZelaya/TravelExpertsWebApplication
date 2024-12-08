@@ -25,6 +25,11 @@ namespace TravelExpertsData.ViewModel
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         public string ConfirmPassword { get; set; }
 
+        
+
+        [Required(ErrorMessage = "Please Provide your travel preference")]        
+        public string TravelPreference { get; set; }
+
         public CustomerViewModel Customer { get; set; }
     }
 
@@ -34,11 +39,7 @@ namespace TravelExpertsData.ViewModel
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last name is required.")]
-        public string LastName { get; set; }
-
-        [Required(ErrorMessage = "Phone number is required.")]
-        [Phone(ErrorMessage = "Enter a valid phone number.")]
-        public string Phone { get; set; }
+        public string LastName { get; set; }        
 
         [Required(ErrorMessage = "City is required.")]
         public string City { get; set; }
@@ -52,14 +53,11 @@ namespace TravelExpertsData.ViewModel
         [Required(ErrorMessage = "Province is required.")]
         public string CustProv { get; set; }
 
-        [Phone(ErrorMessage = "Enter a valid phone number.")]
-        public string CustHomePhone { get; set; }
-
         [Required(ErrorMessage = "Business phone is required.")]
         [Phone(ErrorMessage = "Enter a valid phone number.")]
         public string CustBusPhone { get; set; }
 
-        [EmailAddress(ErrorMessage = "Enter a valid email address.")]
-        public string CustEmail { get; set; }
+        [Required]
+        public string CustAddress { get; set; }
     }
 }
