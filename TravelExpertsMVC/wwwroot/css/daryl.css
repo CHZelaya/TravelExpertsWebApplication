@@ -1,0 +1,15 @@
+﻿.page_return {
+    cursor: pointer;
+}
+
+.modal-footer {
+    justify-content:flex-start;
+}
+
+.errorMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: darkred;
+    background-color: antiquewhite;
+}
