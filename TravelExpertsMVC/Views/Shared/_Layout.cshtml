@@ -13,13 +13,14 @@
     <header>
         <nav class="nav navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container d-flex justify-content-center py-3 ">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TravelExpertsMVC</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/images/logo.png" alt="Logo" class="logo">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <img src="/images/logo.png" alt="Logo" class="logo">
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a class="nav-link @(ViewData["Page"]?.ToString() == "Home" ? "active" : "")" asp-controller="Home" asp-action="Index">Home</a></li>
                         <li class="nav-item"><a class="nav-link @(ViewData["Page"]?.ToString() == "Package" ? "active" : "")" asp-controller="Vacation" asp-action="Index">Vacation Packages</a></li>
