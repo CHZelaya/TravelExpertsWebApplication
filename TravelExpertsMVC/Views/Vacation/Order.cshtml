@@ -13,19 +13,19 @@
         <input type="datetime" hidden asp-for="TripStart" value="@ViewBag.Package.PkgStartDate" />
         <input type="datetime" hidden asp-for="TripEnd" value="@ViewBag.Package.PkgEndDate" />
         <div class="form-control-lg">
-            <label asp-for="TravelerCount" class="control-label"></label>
+            <label asp-for="TravelerCount" class="control-label"> Traveller Count</label>
             <input asp-for="TravelerCount" class="form-control" type="number" />
             <span asp-validation-for="TravelerCount" class="text-danger"></span>
         </div>
         <div class="form-control-lg">
-            <label asp-for="TripTypeId" class="control-label"></label>
+            <label asp-for="TripTypeId" class="control-label"> Trip Type</label>
             @if (ViewBag.TripTypeList != null) {
                 <select class="form-select" asp-for="TripTypeId" asp-items="@ViewBag.TripTypeList"></select>
             }
             <span asp-validation-for="TripTypeId" class="text-danger"></span>
         </div> 
         <div class="form-control-lg">
-            <label asp-for="ItineraryNo" class="control-label"></label>
+            <label asp-for="ItineraryNo" class="control-label"> Itinerary Number</label>
             <input asp-for="ItineraryNo" class="form-control" type="number" />
             <span asp-validation-for="ItineraryNo" class="text-danger"></span>
         </div>

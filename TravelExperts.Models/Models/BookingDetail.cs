@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ public partial class BookingDetail
     [Key]
     public int BookingDetailId { get; set; }
 
+    [DisplayName("Itinerary Number")]
     public double? ItineraryNo { get; set; }
 
     [Column(TypeName = "datetime")]
