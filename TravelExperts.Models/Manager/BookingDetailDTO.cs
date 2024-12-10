@@ -17,6 +17,7 @@ namespace TravelExpertsData.Manager
         public string Destination { get; set; } = string.Empty;
         public decimal? BasePrice { get; set; }
         public decimal? AgencyCommission { get; set; }
+        public decimal? TotalPrice => BasePrice + AgencyCommission;
         public int? BookingId { get; set; }
         //public string RegionId { get; set; } =  string.Empty ;
         //public string RegionName { get; set; } = string.Empty;

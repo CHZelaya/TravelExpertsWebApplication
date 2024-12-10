@@ -30,7 +30,7 @@
         </div> 
         <div class="col-md-6 form-control-lg">
             <label asp-for="Destination" class="control-label"></label>
-            <input asp-for="Destination" class="form-control" />
+            <input asp-for="Destination" class="form-control" value="@ViewBag.Package.PkgName" />
             <span asp-validation-for="Destination" class="text-danger"></span>
         </div>
         @* <div class="form-control-lg"> *@
