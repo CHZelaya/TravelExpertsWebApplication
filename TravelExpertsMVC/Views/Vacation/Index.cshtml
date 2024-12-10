@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<TravelExpertsData.Models.Package>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<TravelExpertsData.Models.User> signInManager
 @{
     ViewData["Title"] = "Package";
     ViewData["Page"] = "Package";
@@ -32,7 +34,9 @@
                     <th>
                         @Html.DisplayNameFor(model => model.PkgAgencyCommission)
                     </th>
-                    <th>Action</th>
+                    @if (signInManager.IsSignedIn(User)) {
+                        <th>Action</th>
+                    }
                 </tr>
             </thead>
             <tbody>
@@ -57,11 +61,13 @@
                         </td>
                         <td>
                             @* @Html.DisplayFor(modelItem => item.PkgAgencyCommission) *@
-                                @String.Format("${0:N2}", item.PkgAgencyCommission)
+                            @String.Format("${0:N2}", item.PkgAgencyCommission)
                         </td>
-                        <td>
-                            @Html.ActionLink("Book it!", "Order", new { id = item.PackageId })
-                        </td>
+                        @if (signInManager.IsSignedIn(User)){
+                            <td>
+                                @Html.ActionLink("Book it!", "Order", new { id = item.PackageId })
+                            </td>
+                        }
                     </tr>
                 }
             </tbody>
