@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace TravelExperts.Models.Models;
+namespace TravelExpertsData.Models;
 
 [Index("FeeId", Name = "Agency Fee Code")]
 [Index("BookingId", Name = "BookingId")]
@@ -20,6 +21,7 @@ public partial class BookingDetail
     [Key]
     public int BookingDetailId { get; set; }
 
+    [DisplayName("Itinerary Number")]
     public double? ItineraryNo { get; set; }
 
     [Column(TypeName = "datetime")]

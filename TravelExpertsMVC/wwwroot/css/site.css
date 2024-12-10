@@ -66,7 +66,7 @@ body {
 }
 
 .logo {
-    max-height: 50px;
+    height: 7em;
     margin-right: 20px;
 }
 
@@ -96,4 +96,9 @@ body {
 /* font adjustment on list profile at contact page */
 .list-group-item {
     font-size: small;
+}
+
+/*//fix footer absolute error*/
+footer {
+    position: relative!important;
 }

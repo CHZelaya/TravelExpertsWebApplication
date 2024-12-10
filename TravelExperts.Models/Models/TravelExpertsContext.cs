@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace TravelExperts.Models.Models;
+namespace TravelExpertsData.Models;
 
 public partial class TravelExpertsContext : IdentityDbContext<User>//changing dbContext to IdentityDbContext
 {
@@ -77,12 +77,12 @@ public partial class TravelExpertsContext : IdentityDbContext<User>//changing db
         //    entity.Property(u => u.ProfilePicture)
         //          .HasColumnType("varbinary(max)");
 
-            
+
         //    entity.HasOne(u => u.Customer)
         //          .WithOne() // One-to-One
         //          .HasForeignKey<User>(u => u.CustomerId) // Foreign Key in User table
         //          .HasConstraintName("FK_User_Customer");
-                 
+
         //});
 
 

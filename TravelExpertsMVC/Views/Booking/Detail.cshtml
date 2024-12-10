@@ -1,0 +1,99 @@
+﻿@model IEnumerable<TravelExpertsData.Models.BookingDetailDTO>
+@{
+    ViewData["Title"] = "BookingDetails";
+    ViewData["Page"] = "Booking";
+}
+<div class="page_return" onclick="location.href='/Booking/Index'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0d6efd" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+    </svg>
+</div>
+<h1>
+    Booking Details
+</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItineraryNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BasePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgencyCommission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItineraryNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TripStart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TripEnd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BasePrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgencyCommission)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FeeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelExperts.Models.Models
+namespace TravelExpertsData.Models
 {
     public class User : IdentityUser
     {
-        public double VirtualWallet { get; set; }
+        public double VirtualWallet { get; set; } = 5000.00;//default value
         public string TravelPreference { get; set; }
         public byte[] ProfilePicture { get; set; }
         public int CustomerId { get; set; }
