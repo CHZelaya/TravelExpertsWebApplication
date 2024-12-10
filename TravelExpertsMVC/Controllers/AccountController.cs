@@ -117,5 +117,46 @@ namespace TravelExpertsMVC.Controllers
             await signInManager.SignOutAsync();//signout
             return RedirectToAction("Index", "Home");
         }
+       
+        public async Task<IActionResult> EditProfile()
+        {
+            var user = await userManager.GetUserAsync(User);
+            //get user details
+            EditProfileViewModel model = AccountManager.GetUserDetails(_context,user!.Id)!;
+            return View(model);
+        }
+
+        public async Task<IActionResult> DeleteProfilePicture(EditProfileViewModel vm)
+        {
+            var user = await userManager.GetUserAsync(User);
+            if(!AccountManager.IsProfilePictureDelete(_context,user.Id))
+            {
+                ModelState.AddModelError("", "Error deleting Picture");                
+            }
+            return RedirectToAction("EditProfile", "Account",vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditProfileAsync(EditProfileViewModel vm, IFormFile? ProfilePicture)//impt note u have to put nullable file else the form will read it as required
+        {
+            if (!ModelState.IsValid) return View(vm);
+            
+            var currentUser = await userManager.GetUserAsync(User);
+
+            //converting iForm to byte []
+            if (ProfilePicture != null && ProfilePicture.Length > 0)
+            {
+                using var memoryStream = new MemoryStream();
+                await ProfilePicture.CopyToAsync(memoryStream);
+                vm.ProfilePicture = memoryStream.ToArray();//updating pp in vm
+            }
+            //update user details
+            int rowsAffected = AccountManager.UpdateUser(_context, currentUser, vm);
+            if (rowsAffected <= 0)
+            {
+                ModelState.AddModelError("", "Error Updating Profile");
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
