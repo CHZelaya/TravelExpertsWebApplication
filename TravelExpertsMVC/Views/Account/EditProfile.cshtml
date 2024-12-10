@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Edit Profile";
 }
-<script src="~/js/EditProfile.js"></script>
+<script src="~/js/EditProfile.js" asp-append-version="true"></script>
 <div class="container mt-5">
     <form method="post" enctype="multipart/form-data" asp-route-returnUrl="@ViewData["ReturnUrl"]" asp-action="EditProfile">
         @if (ViewData.ModelState?.Any(m => m.Value.Errors.Count > 0) == true)
@@ -19,22 +19,31 @@
                     <div class="col-md-4 text-center">
                         @if (Model.ProfilePicture != null)
                         {
-                            <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ProfilePicture)"
-                                 class="rounded-circle img-fluid mb-3 editableProfilePic"                                 
-                                 alt="Profile Picture"
-                                 style="width: 150px; height: 150px;">
-                            <div>
-                                <button type="submit" formaction="/Account/DeleteProfilePicture"
-                                        class="btn btn-danger btn-sm" >
-                                    Delete Picture
+                            <div style="position: relative; width: 150px; height: 150px;">
+                                <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ProfilePicture)"
+                                     class="rounded-circle img-fluid mb-3 editableProfilePic"
+                                     alt="Profile Picture"
+                                     style="width: 150px; height: 150px;">
+
+                                <!-- Icon for Delete -->
+                                <button type="button" class="btn btn-sm position-absolute top-0 end-0 rounded-circle deletePPBtn"
+                                        style="margin: -5px;" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <img src="~/images/trash-icon.png" style="width: 25px; height: 25px;">
                                 </button>
                             </div>
                         }
                         else
                         {
-                            <img src="~/images/default-profile.jpg"
-                                 class="rounded-circle img-fluid mb-3 editableProfilePic"
-                                 alt="Default Profile Picture">
+                            <div style="position: relative; width: 150px; height: 150px;">
+                                <img src="~/images/default-profile.jpg"
+                                     class="rounded-circle img-fluid mb-3 editableProfilePic"
+                                     alt="Default Profile Picture">
+                                <!-- Icon for Delete -->
+                                <button type="button" class="btn btn-sm position-absolute top-0 end-0 rounded-circle deletePPBtn"
+                                        style="margin: -5px;display:none;" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <img src="~/images/trash-icon.png" style="width: 25px; height: 25px;">
+                                </button>
+                            </div>
                         }
                         <div class="form-group">
                             <label for="profilePicture" class="form-label">Upload New Picture:</label>
@@ -110,3 +119,26 @@
         </div>
     </form>
 </div>
+
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete your profile picture?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form method="post" action="/Account/DeleteProfilePicture">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

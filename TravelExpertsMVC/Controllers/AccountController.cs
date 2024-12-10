@@ -150,7 +150,7 @@ namespace TravelExpertsMVC.Controllers
                 await ProfilePicture.CopyToAsync(memoryStream);
                 vm.ProfilePicture = memoryStream.ToArray();//updating pp in vm
             }
-            //get user details
+            //update user details
             int rowsAffected = AccountManager.UpdateUser(_context, currentUser, vm);
             if (rowsAffected <= 0)
             {

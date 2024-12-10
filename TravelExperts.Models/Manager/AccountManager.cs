@@ -80,6 +80,7 @@ namespace TravelExpertsData.Manager
             cust.CustBusPhone = evm.CustBusPhone;
             cust.CustAddress = evm.CustAddress;
             cust.CustEmail = evm.CustEmail;
+            cust.CustHomePhone = evm.CustHomePhone;
 
             return db.SaveChanges(); 
         }
