@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelExpertsData.Models
+namespace TravelExpertsData.Manager
 {
     public class BookingDetailDTO
     {
@@ -18,12 +18,12 @@ namespace TravelExpertsData.Models
         public decimal? BasePrice { get; set; }
         public decimal? AgencyCommission { get; set; }
         public int? BookingId { get; set; }
-        public string RegionId { get; set; } =  string.Empty ;
-        public string RegionName { get; set; } = string.Empty;
-        public string ClassId { get; set; } = string.Empty;
-        public string ClassName { get; set; } = string.Empty;
-        public string FeeId {  get; set; } = string.Empty;
-        public string FeeName { get; set;} = string.Empty;
+        //public string RegionId { get; set; } =  string.Empty ;
+        //public string RegionName { get; set; } = string.Empty;
+        //public string ClassId { get; set; } = string.Empty;
+        //public string ClassName { get; set; } = string.Empty;
+        //public string FeeId {  get; set; } = string.Empty;
+        //public string FeeName { get; set;} = string.Empty;
         public int? ProductSupplierId { get; set; }
         public string ProductName { get; set; } = string.Empty;
         public string SupplierName { get; set; } = string.Empty;

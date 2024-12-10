@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TravelExpertsData.Models.BookingDetailDTO>
+﻿@model IEnumerable<TravelExpertsData.Manager.BookingDetailDTO>
 @{
     ViewData["Title"] = "BookingDetails";
     ViewData["Page"] = "Booking";
@@ -36,21 +36,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.AgencyCommission)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RegionName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClassName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FeeName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SupplierName)
-            </th>
+            @* <th> *@
+            @*     @Html.DisplayNameFor(model => model.RegionName) *@
+            @* </th> *@
+            @* <th> *@
+            @*     @Html.DisplayNameFor(model => model.ClassName) *@
+            @* </th> *@
+            @* <th> *@
+            @*     @Html.DisplayNameFor(model => model.FeeName) *@
+            @* </th> *@
+            @* <th> *@
+            @*     @Html.DisplayNameFor(model => model.ProductName) *@
+            @* </th> *@
+            @* <th> *@
+            @*     @Html.DisplayNameFor(model => model.SupplierName) *@
+            @* </th> *@
         </tr>
     </thead>
     <tbody>
@@ -73,26 +73,26 @@
                     @Html.DisplayFor(modelItem => item.Destination)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BasePrice)
+                    @String.Format("${0:N2}", item.BasePrice)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AgencyCommission)
+                    @String.Format("${0:N2}", item.AgencyCommission)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RegionName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClassName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FeeName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SupplierName)
-                </td>
+                @* <td> *@
+                @*     @Html.DisplayFor(modelItem => item.RegionName) *@
+                @* </td> *@
+                @* <td> *@
+                @*     @Html.DisplayFor(modelItem => item.ClassName) *@
+                @* </td> *@
+                @* <td> *@
+                @*     @Html.DisplayFor(modelItem => item.FeeName) *@
+                @* </td> *@
+                @* <td> *@
+                @*     @Html.DisplayFor(modelItem => item.ProductName) *@
+                @* </td> *@
+                @* <td> *@
+                @*     @Html.DisplayFor(modelItem => item.SupplierName) *@
+                @* </td> *@
             </tr>
         }
     </tbody>
