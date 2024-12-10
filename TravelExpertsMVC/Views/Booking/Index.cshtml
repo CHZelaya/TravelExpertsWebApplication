@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TravelExpertsData.Models.BookingDTO>
+﻿@model IEnumerable<TravelExpertsData.Manager.BookingDTO>
 @{
     ViewData["Title"] = "MyBookings";
     ViewData["Page"] = "Booking";
@@ -53,14 +53,10 @@
                     @Html.DisplayFor(modelItem => item.PackageName)
                 </td>
                 <td>
-                    @* @Html.DisplayFor(modelItem => item.PackagePrice) *@
                     @String.Format("${0:N2}", item.PackagePrice)
-
                 </td>
                 <td>
-                    @* @Html.DisplayFor(modelItem => item.TotalCost) *@
                     @String.Format("${0:N2}", item.TotalCost)
-
                 </td>
                 <td>
                     @Html.ActionLink("Details", "Detail", new { id = item.BookingId })
