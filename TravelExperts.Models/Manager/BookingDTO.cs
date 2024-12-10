@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelExpertsData.Models
+namespace TravelExpertsData.Manager
 {
     public class BookingDTO
     {
