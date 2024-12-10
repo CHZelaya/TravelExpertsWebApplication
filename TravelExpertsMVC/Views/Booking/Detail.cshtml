@@ -31,11 +31,11 @@
                 @Html.DisplayNameFor(model => model.Destination)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BasePrice)
+                @Html.DisplayNameFor(model => model.TotalPrice)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AgencyCommission)
-            </th>
+            @* <th> *@
+            @*     @Html.DisplayNameFor(model => model.AgencyCommission) *@
+            @* </th> *@
             @* <th> *@
             @*     @Html.DisplayNameFor(model => model.RegionName) *@
             @* </th> *@
@@ -73,11 +73,11 @@
                     @Html.DisplayFor(modelItem => item.Destination)
                 </td>
                 <td>
-                    @String.Format("${0:N2}", item.BasePrice)
+                    @String.Format("${0:N2}", item.TotalPrice)
                 </td>
-                <td>
-                    @String.Format("${0:N2}", item.AgencyCommission)
-                </td>
+                @* <td> *@
+                @*     @String.Format("${0:N2}", item.AgencyCommission) *@
+                @* </td> *@
                 @* <td> *@
                 @*     @Html.DisplayFor(modelItem => item.RegionName) *@
                 @* </td> *@

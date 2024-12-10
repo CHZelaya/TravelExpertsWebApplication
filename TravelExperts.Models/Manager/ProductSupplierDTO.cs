@@ -14,6 +14,6 @@ namespace TravelExpertsData.Manager
         public int? PackageId { get; set; }
         public string? ProdName { get; set; }
         public string? SupName { get; set; }
-        public string? displayName => $"Prod:{ProdName}  ,  Supplier:{SupName}";
+        public string? displayName => $"Supplier:{SupName}";
     }
 }
