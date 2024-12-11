@@ -69,8 +69,12 @@ namespace TravelExpertsMVC.Controllers
             if (result.Succeeded)
             {
                 //sent email
-                string message = "lorem";
-                var mail = await _emailSenderService.SendEmailAsync(rvm.Email, "Welcome to Travel Experts", message);
+                string message = "Your next unforgettable adventure begins here!\r\n\r\nAt Travel Experts, we specialize in creating bespoke " +
+                    "travel packages tailored to your unique style. Whether you're chasing breathtaking landscapes, immersing yourself in vibrant cultures," +
+                    " or seeking the perfect balance of relaxation and adventure, we’ve got you covered.\r\n\r\nDiscover hidden gems, experience local wonders, " +
+                    "and let us turn your travel dreams into extraordinary realities.\r\n\r\n🌍 Explore the world with Travel Experts – your journey awaits!";
+                var mail = await _emailSenderService.SendEmailAsync(rvm.Email, "Welcome to Travel Experts, "+u.UserName, message);
+                //debug here for mail
                 await signInManager.SignInAsync(u, false);
                 return RedirectToAction("Index", "Home");
             }
