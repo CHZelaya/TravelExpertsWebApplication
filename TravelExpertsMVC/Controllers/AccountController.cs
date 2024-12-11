@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.Intrinsics.Arm;
 using System.Security.Claims;
 using TravelExpertsData.Manager;
 using TravelExpertsData.Models;
 using TravelExpertsData.ViewModel;
+using TravelExpertsMVC.EmailService;
 
 namespace TravelExpertsMVC.Controllers
 {
@@ -15,11 +17,15 @@ namespace TravelExpertsMVC.Controllers
         private readonly UserManager<User> userManager;
 
         private TravelExpertsContext _context;
-        public AccountController(SignInManager<User> signInManager,UserManager<User> userManager, TravelExpertsContext context)
+
+        private readonly IEmailSender _emailSenderService;
+        public AccountController(SignInManager<User> signInManager,UserManager<User> userManager,
+            TravelExpertsContext context, IEmailSender emailSenderService)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             _context = context; 
+            _emailSenderService = emailSenderService;
         }
 
         [AllowAnonymous]
@@ -30,7 +36,7 @@ namespace TravelExpertsMVC.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> RegisterAsync(RegisterViewModel rvm, IFormFile ProfilePicture)
+        public async Task<IActionResult> RegisterAsync(RegisterViewModel rvm, IFormFile? ProfilePicture)//pp optional
         {
             if (!ModelState.IsValid)
             {
@@ -62,6 +68,9 @@ namespace TravelExpertsMVC.Controllers
             var result = await userManager.CreateAsync(u, rvm.Password!);
             if (result.Succeeded)
             {
+                //sent email
+                string message = "lorem";
+                var mail = await _emailSenderService.SendEmailAsync(rvm.Email, "Welcome to Travel Experts", message);
                 await signInManager.SignInAsync(u, false);
                 return RedirectToAction("Index", "Home");
             }
@@ -157,6 +166,15 @@ namespace TravelExpertsMVC.Controllers
                 ModelState.AddModelError("", "Error Updating Profile");
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
+        public async void TestEmailNtfn()
+        {
+            //sent email
+            string message = "lorem";
+            var mail = await _emailSenderService.SendEmailAsync("yefij99220@bawsny.com", "Welcome to Travel Experts", message);
+            Console.WriteLine(mail);
         }
     }
 }

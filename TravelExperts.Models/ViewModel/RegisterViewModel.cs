@@ -24,11 +24,8 @@ namespace TravelExpertsData.ViewModel
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         public string ConfirmPassword { get; set; }
-
-        
-
-        [Required(ErrorMessage = "Please Provide your travel preference")]        
-        public string TravelPreference { get; set; }
+  
+        public string? TravelPreference { get; set; }//optional
 
         public CustomerViewModel Customer { get; set; }
     }
@@ -51,6 +48,8 @@ namespace TravelExpertsData.ViewModel
         public string PostalCode { get; set; }
 
         [Required(ErrorMessage = "Province is required.")]
+        [StringLength(2, ErrorMessage = "Province must be exactly 2 characters.")]
+        [RegularExpression("^[A-Z]{2}$", ErrorMessage = "Province must only contain 2 uppercase alphabetic characters.")]
         public string CustProv { get; set; }
 
         [Required(ErrorMessage = "Business phone is required.")]
