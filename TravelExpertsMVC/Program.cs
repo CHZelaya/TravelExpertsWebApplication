@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TravelExpertsData.Models;
+using TravelExpertsMVC.EmailService;
 
 namespace TravelExpertsMVC
 {
@@ -10,6 +11,10 @@ namespace TravelExpertsMVC
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            //add email service
+            builder.Services.AddTransient<IEmailSender, EmailSenderService>();
+
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -17,6 +22,12 @@ namespace TravelExpertsMVC
             builder.Services.AddDbContext<TravelExpertsContext>(options =>
                         options.UseSqlServer(
                             builder.Configuration.GetConnectionString("TravelExpertsContext")));
+
+            //add configuration for email settings
+            builder.Services
+                .Configure<EmailSettings>
+                (builder.Configuration.GetSection("EmailSettings"));
+
 
             //add identity service
             builder.Services.AddIdentity<User, IdentityRole>(options => {
