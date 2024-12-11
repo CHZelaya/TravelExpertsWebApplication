@@ -16,11 +16,14 @@ html {
   position: relative;
   min-height: 100%;
 }
+.hero {
+    width: 100%
+}
 
 body {
     background-color: #eaf0f8;
-    font-family: fantasy;
-    font-weight: lighter;
+    font-family: Raleway;
+    font-weight: bolder;
 }
 
 .image-row {
@@ -32,7 +35,6 @@ body {
 .country {
     position: relative;
     margin: 10px;
-    cursor: pointer;
 }
 
     .country img {

@@ -6,8 +6,9 @@ namespace TravelExpertsData.Manager
     {
         public static List<Agent> GetAllAgents(TravelExpertsContext db)
         {
+
             List<Agent> agents = db.Agents.ToList();
-            return agents;
+            return agents.Where(agent => agent.AgentStatus).ToList();
         }
     }//class
 }//namespace

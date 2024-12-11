@@ -25,9 +25,11 @@ public partial class BookingDetail
     public double? ItineraryNo { get; set; }
 
     [Column(TypeName = "datetime")]
+    [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime? TripStart { get; set; }
 
     [Column(TypeName = "datetime")]
+    [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime? TripEnd { get; set; }
 
     [StringLength(255)]

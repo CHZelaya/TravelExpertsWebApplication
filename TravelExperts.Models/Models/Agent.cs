@@ -37,4 +37,5 @@ public partial class Agent
 
     [InverseProperty("Agent")]
     public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
+    public bool AgentStatus { get; internal set; }
 }
