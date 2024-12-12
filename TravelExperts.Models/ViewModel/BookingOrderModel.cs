@@ -35,6 +35,7 @@ namespace TravelExpertsData.ViewModel
         //public string FeeId {  get; set; } = string.Empty;
         //[Required]
         [Display(Name = "Vendor")]
+        [Required]
         public int? ProductSupplierId { get; set; }
     }
 }
