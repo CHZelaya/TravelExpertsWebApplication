@@ -16,7 +16,7 @@ namespace TravelExpertsData.ViewModel
         [Required(ErrorMessage = "User Name is required.")]
         public string UserName{ get; set; }
 
-        [StringLength(50, ErrorMessage = "Travel preference cannot exceed 50 characters.")]
+        [StringLength(1000, ErrorMessage = "Travel preference cannot exceed 1000 characters.")]
         public string? TravelPreference { get; set; }
 
         public byte[]? ProfilePicture { get; set; }

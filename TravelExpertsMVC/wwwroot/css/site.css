@@ -26,11 +26,22 @@ body {
     font-weight: bolder;
 }
 
+.page-title {
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    font-size: 4em;
+    font-family: 'Ephesis';
+}
+
 .image-row {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
+.preference-tip, .character-count
+{
+    font-size: x-small
+}
+
 
 .country {
     position: relative;

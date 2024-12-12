@@ -24,7 +24,8 @@ namespace TravelExpertsData.ViewModel
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         public string ConfirmPassword { get; set; }
-  
+
+        [StringLength(1000, ErrorMessage = "Travel preference cannot exceed 1000 characters.")]
         public string? TravelPreference { get; set; }//optional
 
         public CustomerViewModel Customer { get; set; }
