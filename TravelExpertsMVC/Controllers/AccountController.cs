@@ -163,6 +163,9 @@ namespace TravelExpertsMVC.Controllers
                 await ProfilePicture.CopyToAsync(memoryStream);
                 vm.ProfilePicture = memoryStream.ToArray();//updating pp in vm
             }
+            else {//keep prev pp if null
+                vm.ProfilePicture = currentUser.ProfilePicture;
+            }
             //update user details
             int rowsAffected = AccountManager.UpdateUser(_context, currentUser, vm);
             if (rowsAffected <= 0)
