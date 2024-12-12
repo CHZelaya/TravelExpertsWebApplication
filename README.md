@@ -11,19 +11,19 @@ In a previous phase of the Travel Experts project, web pages were developed to i
 ### Form 1: Customer Sign-Up and Validation
 (✅ - Copy/paste the checkmark as you finish tasks)
 
-❌ Recreate the customer sign-up page to send form data to an ASP.NET page for verification.  
-❌ Ensure all required fields are filled in (business phone is optional).  
-❌ Validate that the postal code follows the correct Canadian format.  
-❌ Ensure the phone number consists of numeric digits and includes an area code.  
-❌ Verify that the password is entered twice and both entries match.  
-❌ Allow the agent ID to be null when creating a customer record.  
+✅ Recreate the customer sign-up page to send form data to an ASP.NET page for verification.  
+✅ Ensure all required fields are filled in (business phone is optional).  
+✅ Validate that the postal code follows the correct Canadian format.  
+✅ Ensure the phone number consists of numeric digits and includes an area code.  
+✅ Verify that the password is entered twice and both entries match.  
+✅ Allow the agent ID to be null when creating a customer record.  
 
 ### Form 2: Customer Login and Data Update
 (✅ - Copy/paste the checkmark as you finish tasks)
 
-❌ Enhance the customer sign-up page to enable customers to log in.  
-❌ Implement user ID and password authentication.  
-❌ Allow customers to modify their personal information after logging in.  
+✅ Enhance the customer sign-up page to enable customers to log in.  
+✅ Implement user ID and password authentication.  
+✅ Allow customers to modify their personal information after logging in.  
 
 ### Form 3: Travel Product Listing
 (✅ - Copy/paste the checkmark as you finish tasks)
