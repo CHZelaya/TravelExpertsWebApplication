@@ -13,3 +13,8 @@
     color: darkred;
     background-color: antiquewhite;
 }
+
+.Place_Header {
+    display:flex;
+    gap: 50px;
+}

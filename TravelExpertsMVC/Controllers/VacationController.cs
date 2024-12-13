@@ -24,12 +24,14 @@ namespace TravelExpertsMVC.Controllers
             List<Package> packages = PackageManager.GetAllPackages(_context);
             return View(packages);
         }
-
-        public IActionResult Order(int id)
+        
+        public async Task<IActionResult> Order(int id)
         {
             getSelectItems(id);
             Package package = PackageManager.getPackageById(_context, id);
             ViewBag.Package = package;
+            var user = await _userManager.GetUserAsync(User) as User;
+            ViewBag.VirtualWallet = user!.VirtualWallet;
             return View();
         }
 
@@ -40,6 +42,7 @@ namespace TravelExpertsMVC.Controllers
             Package package = PackageManager.getPackageById(_context, model.PackageId);
             ViewBag.Package = package;
             var user = await _userManager.GetUserAsync(User) as User;
+            ViewBag.VirtualWallet = user!.VirtualWallet;
             if (ModelState.IsValid)
             {
                 var TotalCount = (decimal)model.TravelerCount! * (model.BasePrice + model.AgencyCommission);

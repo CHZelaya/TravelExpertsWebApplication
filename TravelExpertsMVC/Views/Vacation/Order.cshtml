@@ -2,23 +2,29 @@
 @{
     ViewData["Page"] = "Package";
 }
+@using System.Text.Json
 <div class="page_return" onclick="location.href='/Vacation/Index'">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0d6efd" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
         <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
     </svg>
 </div>
 <h1>Place Order</h1>
+<div class="Place_Header">
+    <p>Virtual Wallet:$ @ViewBag.VirtualWallet</p>
+    <p id="totalCost">TotalCost:$0</p>
+</div>
+
 <form method="post" asp-action="Order">
     <div class="row mb-3">
         <div asp-validation-summary="All" class="text-danger"></div>
         <input asp-for="PackageId" hidden value="@ViewBag.Package.PackageId" />
-        <input asp-for="BasePrice" hidden value="@ViewBag.Package.PkgBasePrice" />
-        <input asp-for="AgencyCommission" hidden value="@ViewBag.Package.PkgAgencyCommission" />
+        <input id="basePrice" asp-for="BasePrice" hidden value="@ViewBag.Package.PkgBasePrice" />
+        <input id="agencyCommission" asp-for="AgencyCommission" hidden value="@ViewBag.Package.PkgAgencyCommission" />
         <input type="datetime" hidden asp-for="TripStart" value="@ViewBag.Package.PkgStartDate" />
         <input type="datetime" hidden asp-for="TripEnd" value="@ViewBag.Package.PkgEndDate" />
         <div class="col-md-6 form-control-lg">
             <label asp-for="TravelerCount" class="control-label"> Traveller Count</label>
-            <input asp-for="TravelerCount" class="form-control" type="number" />
+            <input id="TaverlerInput" asp-for="TravelerCount" class="form-control" type="number" min="0" />
             <span asp-validation-for="TravelerCount" class="text-danger"></span>
         </div>
         <div class="col-md-6 form-control-lg">
@@ -76,3 +82,18 @@
         </div>
     </div>
 </form>
+
+@section Scripts{
+    <script>
+            $(document).ready(function(){
+            var basePrice = parseFloat($("#basePrice").val());
+            var agencyCommission = parseFloat($("#agencyCommission").val());
+            var packagePrice = basePrice + agencyCommission;
+            $("#TaverlerInput").change(function(){
+                var travelerCount = $("#TaverlerInput").val() ? parseInt($("#TaverlerInput").val()) : 0;
+                var totalCost = travelerCount * packagePrice;
+                $("#totalCost").text("TotalCost:$"+ totalCost.toString());
+            });
+        });
+    </script>
+}
