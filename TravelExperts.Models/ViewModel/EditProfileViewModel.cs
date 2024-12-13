@@ -47,18 +47,21 @@ namespace TravelExpertsData.ViewModel
 
         [Required(ErrorMessage = "Postal Code is required.")]
         [StringLength(7, ErrorMessage = "Postal Code cannot exceed 7 characters.")]
+        [RegularExpression("^[ABCEGHJ-NPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z][ -]?\\d[ABCEGHJ-NPRSTV-Z]\\d$",
+        ErrorMessage = "Not a valid Canadian Postal Code.")]
         public string CustPostal { get; set; } = null!;
+
 
         [StringLength(25, ErrorMessage = "Country cannot exceed 25 characters.")]
         public string? CustCountry { get; set; }
 
         [Phone(ErrorMessage = "Invalid Home Phone format.")]
-        [StringLength(20, ErrorMessage = "Home Phone cannot exceed 20 characters.")]
+        [StringLength(10, ErrorMessage = "Home Phone cannot exceed 10 characters.")]
         public string? CustHomePhone { get; set; }
 
         [Required(ErrorMessage = "Business Phone is required.")]
         [Phone(ErrorMessage = "Invalid Business Phone format.")]
-        [StringLength(20, ErrorMessage = "Business Phone cannot exceed 20 characters.")]
+        [StringLength(10, ErrorMessage = "Business Phone cannot exceed 10 characters.")]
         public string CustBusPhone { get; set; } = null!;
 
         [Required(ErrorMessage = "Email is required.")]
