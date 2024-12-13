@@ -115,3 +115,8 @@ body {
 footer {
     position: relative!important;
 }
+
+.agent-photo{
+    max-width: 75%;
+    height: auto;
+}

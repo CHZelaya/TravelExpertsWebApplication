@@ -24,7 +24,7 @@
         <input type="datetime" hidden asp-for="TripEnd" value="@ViewBag.Package.PkgEndDate" />
         <div class="col-md-6 form-control-lg">
             <label asp-for="TravelerCount" class="control-label"> Traveller Count</label>
-            <input id="TaverlerInput" asp-for="TravelerCount" class="form-control" type="number" />
+            <input id="TaverlerInput" asp-for="TravelerCount" class="form-control" type="number" min="0" />
             <span asp-validation-for="TravelerCount" class="text-danger"></span>
         </div>
         <div class="col-md-6 form-control-lg">
