@@ -48,7 +48,7 @@ namespace TravelExpertsData.ViewModel
         [Required(ErrorMessage = "Postal Code is required.")]
         [StringLength(7, ErrorMessage = "Postal Code cannot exceed 7 characters.")]
         [RegularExpression("^[ABCEGHJ-NPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z][ -]?\\d[ABCEGHJ-NPRSTV-Z]\\d$",
-        ErrorMessage = "Not a valid Canadian Postal Code.")]
+        ErrorMessage = "Not a valid Canadian Postal Code.")] 
         public string CustPostal { get; set; } = null!;
 
         public string PostalCode { get; set; }
