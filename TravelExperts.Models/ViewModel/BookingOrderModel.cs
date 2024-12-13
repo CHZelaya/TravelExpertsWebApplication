@@ -10,6 +10,7 @@ namespace TravelExpertsData.ViewModel
     public class BookingOrderModel
     {
         [Required]
+        [Range(1,double.MaxValue,ErrorMessage="TravelerCount must be greater than zero!")]
         public double? TravelerCount { get; set; }
         public int? PackageId { get; set; }
         [Required]
